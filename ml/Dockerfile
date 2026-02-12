@@ -5,7 +5,7 @@ FROM python:3.12-slim
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     gcc \
-    libgl1-mesa-glx \
+    libglvnd0 \
     libglib2.0-0 \
     libsm6 \
     libxext6 \
