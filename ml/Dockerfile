@@ -2,16 +2,16 @@
 FROM python:3.12-slim
 
 # Install system dependencies required for OpenCV
-# Adding --fix-missing and cleaning lists to prevent hash mismatch errors
-RUN apt-get clean && rm -rf /var/lib/apt/lists/* && \
-    apt-get update --fix-missing && apt-get install -y --no-install-recommends \
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
     gcc \
     libgl1-mesa-glx \
     libglib2.0-0 \
     libsm6 \
     libxext6 \
     libxrender-dev \
-    && rm -rf /var/lib/apt/lists/*
+    ca-certificates \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Set working directory
 WORKDIR /app
